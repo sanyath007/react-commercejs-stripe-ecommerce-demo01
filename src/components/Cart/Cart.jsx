@@ -7,12 +7,15 @@ import {
 } from '@material-ui/core'
 import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ cart }) => {
     const classes = useStyles();
 
     const EmptyCart = () => (
-        <Typography variant="subtitle1">You have no item in your Shopping cart, start adding some!</Typography>
+        <Typography variant="subtitle1">You have no item in your Shopping cart, 
+            <Link to="/" className={classes.link}>start adding some</Link>!
+        </Typography>
     );
 
     const FilledCart = () => (
