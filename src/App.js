@@ -18,23 +18,22 @@ const App = () => {
         setCart(await commerce.cart.retrieve());
     }
 
-    const handleAddToCart = async (productId, qty) => {
-        const { cart } = await commerce.cart.add(productId, qty);
+    const handleAddToCart = async (productId, quantity) => {
+        const { cart } = await commerce.cart.add(productId, quantity);
 
         setCart(cart);
     }
 
-    const handleUpdateCartQty = async (productId, qty) => {
-        const { cart } = await commerce.cart.update(productId, { qty });
-
+    const handleUpdateCartQty = async (productId, quantity) => {
+        const { cart } = await commerce.cart.update(productId, { quantity });
+        
         setCart(cart);
     }
 
     const handleRemoveFromCart = async (productId) => {
-        console.log('RemoveFromCart is called');
-        // const { cart } = await commerce.cart.remove(productId);
+        const { cart } = await commerce.cart.remove(productId);
 
-        // setCart(cart);
+        setCart(cart);
     }
     
     const handleEmptyCart = async () => {
@@ -47,9 +46,6 @@ const App = () => {
         fetchProducts();
         fetchCart();
     }, [])
-
-    console.log(products);
-    console.log(cart);
 
     return (
         <Router>
